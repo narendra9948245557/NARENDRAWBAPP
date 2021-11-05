@@ -7,8 +7,9 @@ Jobs:
     steps:
     - uses: actions/checkout@main
     - uses: azure/login@v1
-	creds: ${{ secrets.CREDENTIALS }}
+      with: 
+      creds: ${{ secrets.CREDENTIALS }}
     - uses: azure/arm-deploy@v1
       with:
-	resourceGroupName: BABURG
-	template: ./template.json
+      resourceGroupName: BABURG
+      template: ./template.json
