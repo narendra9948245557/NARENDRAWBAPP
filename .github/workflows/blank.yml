@@ -1,0 +1,14 @@
+on: [push]
+name: AzureWebApp
+
+Jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    - uses: azure/login@v1
+	creds: ${{ secrets.CREDENTIALS }}
+    - uses: azure/arm-deploy@v1
+      with:
+	resourceGroupName: BABURG
+	template: ./template.json
